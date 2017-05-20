@@ -1,0 +1,290 @@
+@import 'helpers/variables.styl'
+@import 'helpers/mixins.styl'
+@import 'base/base.styl'
+
+
+.hero
+  background url('../../img/bg.jpg') center 100% no-repeat
+  background-size cover
+  display block
+  height 100vh
+  margin 0
+  position relative
+  width 100%
+  &:before
+    content ''
+    background-color rgba($main, .7)
+    height 100%
+    position absolute
+    width 100%
+    z-index 0
+  &__align
+    align-items center
+    display flex
+    flex-wrap wrap
+    height 100%
+    margin-top 6%
+    justify-content center
+  &__content
+    color #fff
+    text-align center
+    position relative
+    z-index 50
+  &__header
+    font-size 4.4rem
+    font-weight 800
+    letter-spacing 1px
+    line-height 1
+    margin 0
+    margin-bottom 5rem
+    text-transform uppercase
+  &__subheader
+    font-size 3rem
+    line-height 1
+    margin 0
+    margin-bottom 1rem
+    opacity .5
+    font-weight 400
+  &__time
+    font-size 3rem
+    font-weight 600
+
+.main-header
+  padding-top 5rem
+  position relative
+  z-index 50
+
+.logo
+  color #fff
+  font-size 2.4rem
+  font-weight 700
+  letter-spacing 2px
+  text-transform uppercase
+  text-decoration none
+
+.navigation
+  float right
+  &__link
+    display inline-block
+    margin-right 3rem
+    a
+      color #fff
+      font-size 1.6rem
+      font-weight 600
+      letter-spacing 1.5px
+      text-decoration none
+      text-transform uppercase
+      &:hover
+        color $primary
+
+.menu
+  float right
+  &__span
+    color #fff
+    font-size 1.4rem
+    letter-spacing 1px
+    text-transform uppercase
+
+.btn
+  color #fff
+  border 2px solid #fff
+  border-radius $radius
+  display inline-block
+  font-size 1.6rem
+  letter-spacing 1.5px
+  padding .6rem 2rem
+  text-decoration none
+  text-transform uppercase
+  transition background-color .2s, color .2s
+  &:hover
+    background-color #fff
+    color $main
+  & + .btn
+    margin-left 2rem
+
+.offset
+  margin-bottom 8rem
+
+.center
+  text-align center
+
+.h3
+  font-weight 400
+  font-size 3rem
+  text-transform uppercase
+
+.video
+  display block
+  height 40rem
+  width 100%
+  iframe
+    display block
+    height 100%
+    width 100%
+
+.about
+  position relative
+  &__text
+    background-color #fff
+    bottom 0
+    height 50rem
+    margin auto
+    padding 6rem
+    position absolute
+    right 0
+    top 0
+    width 60%
+
+.news
+  &__item.item
+    .item
+      &__img
+        display block
+        height 25rem
+        overflow hidden
+        margin-bottom 1.6rem
+        img
+          display block
+          max-width 100%
+      &__title
+        color $main
+        display block
+        font-size 2rem
+        font-weight 600
+        line-height 1.2
+        margin-bottom 1rem
+        text-decoration none
+        transition all .2s
+        &:hover
+          color $primary
+      &__anons
+        margin-top 0
+
+.troupe
+  text-align center
+  &__item
+    display inline-block
+    text-align center
+    margin-bottom 2rem
+    // size(19rem)
+    padding 3rem
+    // &:hover
+    //   background-color rgba($primary, .2)
+    .item
+      &__img
+        background-size cover !important
+        background-position 50% !important
+        border-radius 50%
+        display inline-block
+        size(15rem)
+      &__name
+        font-weight 600
+        line-height 1
+        margin-bottom .5rem
+      &__role
+        line-height 1
+
+.team
+  &__slide
+    margin 0 1rem
+  &__img
+    background-size cover !important
+    background-position 50% 40%
+    height 30rem
+    margin-bottom 2rem
+    width 100%
+  &__name
+    font-size 1.8rem
+    font-weight 500
+    letter-spacing 1px
+    line-height 1.2
+    text-transform uppercase
+  &__link
+    display block
+    a
+      border-bottom 1px solid rgba($primary, .3)
+      color $primary
+      display inline
+      font-size 1.4rem
+      text-decoration none
+  &__desc
+    font-size 1.4rem
+  img
+    max-width 100%
+
+.partners
+  .partner
+    &__img
+      display block
+      text-align center
+      // size(20rem)
+      padding 5rem
+      img
+        display inline-block
+        max-width 100%
+
+.slider
+  .slick-arrow
+    background $main
+    border 0
+    cursor pointer
+    font-size 0
+    opacity .4
+    position absolute
+    top 20%
+    transition opacity .2s
+    size(10rem)
+    z-index 20
+    &:hover
+      opacity 1
+    &:after
+      position absolute
+      left 2rem
+      size(5rem)
+      top 2.8rem
+      transition transform .2s
+      z-index 100
+  .slick-prev
+    left 0
+    &:hover:after
+      transform translateX(-4px)
+    &:after
+      content url('../../img/left.png')
+  .slick-next
+    right 0
+    &:hover:after
+      transform translateX(4px)
+    &:after
+      content url('../../img/right.png')
+      left 3rem
+
+.organisator
+  img
+    max-width 100%
+
+.author
+  color $main
+  font-size 1.8rem
+  font-weight 400
+  letter-spacing 1px
+  text-transform uppercase
+  text-decoration none
+  transition color .2s
+  &:hover
+    color $primary
+
+.copyright
+  text-align right
+
+.fade
+  animation fade .8s ease forwards
+
+@keyframes fade
+  0%
+    opacity .5
+    transform translateY(30px)
+  100%
+    opacity 1
+    transform none
+
+@import 'base/media.styl'
