@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $('.partners').slick({
     // autoplay: true,
     // autoplaySpeed: 3000,
@@ -32,7 +33,8 @@ $(document).ready(function () {
         }
       }
     ]
-  })
+  });
+
   $('.team').slick({
     // autoplay: true,
     // autoplaySpeed: 3000,
@@ -66,5 +68,15 @@ $(document).ready(function () {
         }
       }
     ]
-  })
+  });
+
+  $('.masonry').masonry();
+  $('.masonry').magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
+  });
+
 })

@@ -8,6 +8,7 @@ sourcemaps = require 'gulp-sourcemaps'
 # jade = require 'gulp-jade'
 pug = require 'gulp-pug'
 # coffee = require 'gulp-coffee'
+imagemin = require 'gulp-imagemin'
 browserSync = require 'browser-sync'
 reload = browserSync.reload
 
@@ -21,18 +22,22 @@ gulp.task 'stylus', ->
 			# compress: true
 		.on 'error', (err) ->
 			console.log err
-		# .pipe autoprefixer({browsers: ['> 1%', 'last 5 version','IE 10'], cascade: false})
-		# .pipe uglifycss
-		# 	'uglyComments': true
+		.pipe autoprefixer({browsers: ['> 1%', 'last 5 version','IE 10'], cascade: false})
+		.pipe uglifycss
+			'uglyComments': true
 		# .pipe sourcemaps.write('.')
 		.pipe gulp.dest 'dist/styles/css/'
 		.pipe(reload({stream: true}))
 
 
-# gulp.task 'jade', ->
-# 	gulp.src '*.jade'
-# 		.pipe jade {pretty: true}
-# 		.pipe gulp.dest 'dist/'
+gulp.task 'imagemin', ->
+	gulp.src 'img/*'
+	.pipe imagemin([
+		imagemin.jpegtran({progressive: true})
+	], {
+		verbose: true
+	})
+	.pipe gulp.dest('dist/images')
 
 gulp.task 'pug', ->
 	gulp.src '*.pug'
@@ -56,7 +61,7 @@ gulp.task 'watch', ->
 
 
 # gulp.task 'default', ['pug', 'stylus', 'coffee','watch'], ->
-gulp.task 'default', ['pug', 'stylus', 'watch'], ->
+gulp.task 'default', ['pug', 'stylus', 'imagemin','watch'], ->
 
 	browserSync
 		server: 'dist/'
@@ -65,5 +70,6 @@ gulp.task 'default', ['pug', 'stylus', 'watch'], ->
 
 	# gulp.watch('styles/*.styl', ['stylus'])
 	gulp.watch('dist/styles/css/main.css')
+	gulp.watch('img/*', ['imagemin'])
 	# gulp.watch('js/*.coffee',     ['coffee'])
 	gulp.watch('*.pug',      ['pug-watch'])
